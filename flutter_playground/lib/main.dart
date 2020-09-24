@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
@@ -13,13 +14,65 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blue[200],
+
         appBar: AppBar(
           title: Text("Flutter Playground"),
           centerTitle: true,
           backgroundColor: Colors.greenAccent,
         ),
-        body: Container(),
+        body:
+            Row(
+              children: <Widget>[
+                Expanded(child: Image.asset('assets/oceanbeach.jpg'), flex: 3,),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    color: Colors.cyan,
+                    child: Text("1"),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    color: Colors.pinkAccent,
+                    child: Text("2"),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    color: Colors.green,
+                    child: Text("3"),
+                  ),
+                )
+              ],
+
+            ),
+
+        // Rows allow us to have multiple widgets
+        // Row(
+        //   Main Axis = X axis, Cross Axis = Y Axis
+        //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: <Widget>[
+        //     Text("hello world"),
+        //     FlatButton(
+        //       onPressed: (){},
+        //       color: Colors.green,
+        //       child: Text("Click ME")
+        //     ),
+        //     Container(
+        //       color: Colors.cyan,
+        //       // EdgeInsets will allow us to set our margins and padding
+        //       padding: EdgeInsets.all(30),
+        //       child: Text("inside container")
+        //     )
+        //   ],
+        // ),
+
 
 
 

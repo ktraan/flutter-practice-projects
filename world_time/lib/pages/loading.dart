@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 // This convert will convert our JSON into data we can work with
 import 'dart:convert';
 import 'package:world_time/services/world_time.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Loading extends StatefulWidget {
   @override
@@ -18,6 +18,7 @@ class _LoadingState extends State<Loading> {
   void setupWorldTime() async {
     WorldTime instance = WorldTime(location: 'Edmonton', flag: 'edmonton.png', url: 'America/Edmonton');
     await instance.getTime();
+    // Loading screen will end once the time is loaded
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
       'flag': instance.flag,
@@ -36,10 +37,13 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50),
-        child: Text('loading')
-      )
+      backgroundColor: Colors.blue[900],
+      body: Center(
+        child: SpinKitFadingCube(
+          color: Colors.white,
+          size: 80.0,
+        ),
+      ),
     );
   }
 }

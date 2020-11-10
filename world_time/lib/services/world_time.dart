@@ -12,6 +12,7 @@ class WorldTime {
   String time; //time in location
   String flag; // URL to an asset flag icon
   String url; // Location URL for api endpoint
+  bool isDayTime; // true/false if daytime or not
 
   // Constructor
   WorldTime({ this.location, this.flag, this.url });
@@ -39,6 +40,7 @@ class WorldTime {
 
       // Set time property
       // This DateFormat.jm is from Intl dart package
+      isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
       time = DateFormat.jm().format(now);
 
     } catch (error) {
